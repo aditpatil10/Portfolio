@@ -149,12 +149,10 @@ footer {
 
 /*About me*/
 .leftside {
-  background-color: #ff9e2c;
   float: left;
   width: 50%;
 }
 .rightside {
-  background-color: #b6701e;
   float: left;
   width: 50%;
 }
@@ -164,5 +162,13 @@ footer {
   height: 800px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: auto;
   border: 1px solid black;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
