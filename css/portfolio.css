@@ -406,3 +406,38 @@ input[type="submit"]:hover {
     margin-top: 0;
   }
 }
+
+/* Experience page */
+
+.container-exp {
+  background-color: #f2f2f2;
+  padding: auto;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 2%;
+}
+
+.column-exp {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row-exp:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.leftside-e {
+  float: left;
+  width: 30%;
+  background-color: #378c3f;
+}
+.rightside-e {
+  float: left;
+  width: 70%;
+  font-family: "Montserrat";
+}
