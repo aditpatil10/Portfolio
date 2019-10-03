@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
@@ -440,4 +444,49 @@ input[type="submit"]:hover {
   float: left;
   width: 70%;
   font-family: "Montserrat";
+}
+
+/* Hire me */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.card {
+  flex: 0 0 200px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  background-color: white;
+}
+.card img {
+  max-width: 100%;
+}
+.card .text {
+  padding: 0 20px 20px;
+}
+.card .text > button {
+  background: gray;
+  border: 0;
+  color: white;
+  padding: 10px;
+  width: 100%;
+}
+.container-h {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.ul-h {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+.li-h {
+  border: 1px solid #ddd; /* Add a thin border to each list item */
+  margin-top: -1px; /* Prevent double borders */
+  padding: 12px; /* Add some padding */
+  background-color: white;
 }

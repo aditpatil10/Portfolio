@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Education</title>
+    <link rel="stylesheet" href="css/portfolio.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body class="home">
+    <nav>
+      <ul>
+        <li style="padding-right: 12%"><a href="#home">adi10</a></li>
+        <li><a href="#home">Homepage</a></li>
+        <li><a href="#news">About me</a></li>
+        <li><a href="#contact">Skills</a></li>
+        <li><a href="#contact">Portfolio</a></li>
+        <li><a href="#contact">Experience</a></li>
+        <li><a href="#contact">Blog</a></li>
+        <li><a href="#contact">Hire me</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a
+            href="#contact"
+            onclick="document.getElementById('id02').style.display='block'"
+            >Sign up</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            onclick="document.getElementById('id01').style.display='block'"
+            >Login</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <header>
+      <h1 style="text-align: center; color: #f1f1f1">Hire me</h1>
+    </header>
+    <div class="container-h">
+    <main class="cards" style="justify-content: center">
+            <article class="card">
+                <div style="height: 35%; background-color: green">
+                    <i class="fa fa-shopping-cart" style="font-size:100px; color:white ; margin: 15px"></i>
+                </div>
+              <div class="text" style="text-align: center">
+                <h1>$300</h1>
+                <p>Design for natural people</p>
+                <ul class="ul-h">
+                        <li class="li-h">Logo</li>
+                        <li class="li-h">Advertising image to print</li>
+                        <li class="li-h">Photo Editing</li>
+                        <li class="li-h"><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
+                      </ul>
+              </div>
+            </article>
+            <article class="card">
+                    <div style="height: 35%; background-color: blue">
+                            <i class="fa fa-shopping-cart" style="font-size:100px; color:white ; margin: 15px"></i>
+                        </div>
+                      <div class="text" style="text-align: center">
+                        <h1>$650</h1>
+                        <p>Informative Website Design</p>
+                        <ul class="ul-h">
+                                <li class="li-h">Logo</li>
+                                <li class="li-h">Photo Editing</li>
+                                <li class="li-h">Site Construction</li>
+                                <li class="li-h">Maintenance for 6 months </li>
+                                <li class="li-h"><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
+                              </ul>
+                      </div>
+            </article>
+            <article class="card">
+                    <div style="height: 35%; background-color: blueviolet">
+                            <i class="fa fa-shopping-cart" style="font-size:100px; color:white ; margin: 15px"></i>
+                        </div>
+                      <div class="text" style="text-align: center">
+                        <h1>$1450</h1>
+                        <p>3d character Design</p>
+                        <ul class="ul-h">
+                                <li class="li-h">Character Sketch</li>
+                                <li class="li-h">Digitization and development</li>
+                                <li class="li-h">Animation</li>
+                                <li class="li-h">Video demo</li>
+                                <li class="li-h"><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
+                              </ul>
+                      </div>
+            </article>
+            </div>
+
+    <!--Login pop up code starts -->
+
+    <!-- The Modal -->
+    <div id="id01" class="modal">
+      <span
+        onclick="document.getElementById('id01').style.display='none'"
+        class="close"
+        title="Close Modal"
+        >&times;</span
+      >
+
+      <!-- Modal Content -->
+      <form class="modal-content animate" action="/action_page.php">
+        <div style="padding: 2%">
+          <h1>Log in</h1>
+        </div>
+
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="uname"
+            required
+          />
+
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            required
+          />
+
+          <button type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember" /> Remember
+            me
+          </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <button
+            type="button"
+            onclick="document.getElementById('id01').style.display='none'"
+            class="cancelbtn"
+          >
+            Cancel
+          </button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
+
+    <!--Login pop up code ends -->
+
+    <!-- The Modal -->
+    <div id="id02" class="modal">
+      <span
+        onclick="document.getElementById('id02').style.display='none'"
+        class="close"
+        title="Close Modal"
+        >&times;</span
+      >
+
+      <!-- Modal Content -->
+      <form class="modal-content animate" action="/action_page.php">
+        <div style="padding: 2%">
+          <h1>Check in</h1>
+        </div>
+
+        <div class="container">
+          <label for="name"><b>Name</b></label>
+          <input type="text" placeholder="Enter name" name="name" required />
+
+          <label for="lname"><b>Last name</b></label>
+          <input
+            type="text"
+            placeholder="Enter Last name"
+            name="lname"
+            required
+          />
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required />
+          <label for="usern"><b>Username</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="usern"
+            required
+          />
+          <label for="pass"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="pass"
+            required
+          />
+          <label for="rpass"><b>Repeat Password</b></label>
+          <input
+            type="password"
+            placeholder="Reenter Password"
+            name="rpass"
+            required
+          />
+
+          <button type="submit">Save</button>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <button
+            type="button"
+            onclick="document.getElementById('id02').style.display='none'"
+            class="cancelbtn"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+    <footer>
+      <p>Copyrights @adi10</p>
+    </footer>
+  </body>
+</html>
