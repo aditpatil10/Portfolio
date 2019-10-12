@@ -58,7 +58,7 @@ nav ul li {
 
 /* Create a style for the first level items */
 nav > ul > li > a {
-  color: #aaa;
+  color: white;
   background-color: ##0c0d0d;
   display: block;
   line-height: 2em;
@@ -70,7 +70,7 @@ nav > ul > li > a {
 }
 
 nav li:hover {
-  background-color: #666;
+  background-color: rgb(82, 247, 104);
 }
 /* display the submenu on mouse over main menu item*/
 nav li:hover > ul {
