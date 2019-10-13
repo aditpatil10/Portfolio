@@ -23,6 +23,7 @@ a {
 }
 .home {
   background-image: url(../imgs/bg1.jpg);
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
