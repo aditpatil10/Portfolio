@@ -23,7 +23,7 @@ a {
   margin-top: 30px; /* Add a top margin to avoid content overlay */
 }
 .home {
-  background-image: url(../imgs/bg.jpg);
+  background-image: url(../imgs/bg1.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
