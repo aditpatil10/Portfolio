@@ -223,6 +223,14 @@ footer {
   padding-top: 2%;
 }
 
+@media only screen and (max-width: 500px) {
+  /*shows elements in a column*/
+  #wrapper {
+    height: 600px;
+    width: 95%;
+  }
+}
+
 .centered {
   position: absolute;
   top: 50%;
@@ -482,6 +490,31 @@ input[type="submit"]:hover {
   padding: 20px;
 }
 
+.lp {
+  padding: 40px;
+}
+
+@media only screen and (max-width: 500px) {
+  /*shows elements in a column*/
+  .container-exp {
+    background-color: #f2f2f2;
+    padding: auto;
+    padding-top: 2%;
+    width: 100%;
+    margin-left: auto;
+    margin-top: auto;
+  }
+
+  .column-exp {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    padding: 20px;
+  }
+  .lp {
+    padding: 50px;
+  }
+}
 /* Clear floats after the columns */
 .row-exp:after {
   content: "";
@@ -501,6 +534,19 @@ input[type="submit"]:hover {
   font-family: "Montserrat";
 }
 
+@media only screen and (max-width: 500px) {
+  /*shows elements in a column*/
+  .leftside-e {
+    float: left;
+    width: 45%;
+    background-color: #378c3f;
+  }
+  .rightside-e {
+    float: left;
+    width: 55%;
+    font-family: "Montserrat";
+  }
+}
 /* Hire me */
 .cards {
   display: flex;
