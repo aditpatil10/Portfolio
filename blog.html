@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Portfolio</title>
+    <title>Blog</title>
     <link rel="stylesheet" href="css/portfolio.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
@@ -17,7 +17,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="js/portfolio.js" type="text/javascript"></script>
   </head>
-  <body style="background-color: #f1f1f1;">
+  <body>
     <nav>
       <ul>
         <button>🞬</button>
@@ -25,10 +25,10 @@
         <li><a href="home.html">Homepage</a></li>
         <li><a href="aboutme.html">About me</a></li>
         <li><a href="skills.html">Skills</a></li>
-        <li><a href="#">Portfolio</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="exp.html">Experience</a></li>
         <li><a href="edu.html">Education</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="#">Blog</a></li>
         <li><a href="Hireme.html">Hire me</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li>
@@ -47,59 +47,47 @@
         </li>
       </ul>
     </nav>
-    <header><h1 style="text-align: center">Portfolio</h1></header>
-    <div id="btncontainer">
-      <button class="bt active" style="font-size:24px">
-        <i class="fa fa-laptop"></i>
-      </button>
-      <button class="bt" style="font-size:24px">
-        <i class="fa fa-image"></i>
-      </button>
-      <button class="bt" style="font-size:24px">
-        <i class="fa fa-camera"></i>
-      </button>
+    <header><h1 style="text-align: center">Professional skills</h1></header>
+    <div class="wrapper-blog">
+      <div>
+        <img src="imgs/pixel.jpg" class="img-blog center" />
+      </div>
+      <h3><b>Google Pixel 4 XL review</b></h3>
+      <p>
+        The Google Pixel 4 XL is a handsome phone in its simplicity that, by the
+        same coin, feels less impressive than its Android flagship counterparts.
+        It doesn’t help that its new standout features are inessential, and
+        erratically functional.
+      </p>
+
+      <button><a href="http://aditpatil10.uta.cloud/tech/google-pixel-4-xl-review/" style="text-decoration: none; color:#f1f1f1"> Get in</a></button>
     </div>
-
-    <!-- Portfolio Gallery Grid -->
-    <div class="grid">
-      <div class="polaroid nature">
-        <img src="imgs/proj3.png" alt="Mountains" style="width:100%" />
-        <div class="capti">
-          <p>JS Pig game</p>
-          <a href="https://github.com/aditpatil10/Pig-Game">See Project</a>
-        </div>
+    <div class="wrapper-blog">
+      <div>
+        <img src="imgs/jsimg.png" class="img-blog center" />
       </div>
-      <div class="polaroid nature">
-        <img src="imgs/proj1.png" alt="Lights" style="width:100%" />
-        <div class="capti">
-          <p>Fabrication website for client.</p>
-          <a href="https://github.com/aditpatil10/Fabrication-website"
-            >See Project</a
-          >
-        </div>
-      </div>
-      <div class="polaroid nature">
-        <img src="imgs/proj2.png" alt="Nature" style="width:100%" />
-        <div class="capti">
-          <p>Github profile viewer</p>
-          <a href="https://github.com/aditpatil10/Gitviewer">See Project</a>
-        </div>
-      </div>
-
-      <div class="polaroid nature">
-        <img src="imgs/proj4.png" alt="Nature" style="width:100%" />
-        <div class="capti">
-          <p>MSC fasteners website.</p>
-          <a href="https://github.com/aditpatil10/MCSfasten-website"
-            >See Project</a
-          >
-        </div>
+      <p>
+          It’s that time of year again: The annual overview of the JavaScript tech ecosystem. Our aim is to highlight the learning topics and technologies with the highest potential job ROI. What are people using in the workforce? What do the trends look like? We’re not attempting to pick what’s best, but instead using a data-driven approach to help you focus on what might actually help you land a job when the interviewer asks you
+        </p>
+  
+        <button><a href="http://aditpatil10.uta.cloud/tech/top-javascript-frameworks-and-topics-to-learn-in-2019/" style="text-decoration: none; color:#f1f1f1"> Get in</a></button>
       </div>
     </div>
-
-    <!-- END GRID -->
-
-    /*Login pop up code starts */
+    <div class="wrapper-blog">
+      <div>
+        <img src="imgs/globe.jpg" class="img-blog center" />
+      </div>
+      <p>
+          The Google Pixel 4 XL is a handsome phone in its simplicity that, by the
+          same coin, feels less impressive than its Android flagship counterparts.
+          It doesn’t help that its new standout features are inessential, and
+          erratically functional.
+        </p>
+  
+        <button><a href="http://aditpatil10.uta.cloud/tech/ai-being-used-to-confront-mediate-climate-change/" style="text-decoration: none; color:#f1f1f1"> Get in</a></button>
+      </div>
+    </div>
+    <!-- Log in popup starts -->
     <!-- The Modal -->
     <div id="id01" class="modal">
       <span
@@ -151,7 +139,7 @@
         </div>
       </form>
     </div>
-    /*Login pop up code ends */
+    <!-- Log in popup ends -->
     <!-- The Modal -->
     <div id="id02" class="modal">
       <span
