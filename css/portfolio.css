@@ -658,3 +658,15 @@ div.capti {
   width: 100%;
   height: 100%;
 }
+
+/* Validation */
+
+.valdi {
+  display: block;
+  margin-top: 90px;
+  margin-right: -130px;
+  text-align: center;
+  color: red;
+  transition: 0.3ms ease-in-out all;
+  font-size: 14px;
+}

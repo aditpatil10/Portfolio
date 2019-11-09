@@ -151,47 +151,65 @@
       >
 
       <!-- Modal Content -->
-      <form class="modal-content animate" action="/action_page.php">
+      <form
+        class="modal-content animate"
+        action="/action_page.php"
+        method="get"
+        onsubmit="return singup()"
+      >
         <div style="padding: 2%">
           <h1>Check in</h1>
         </div>
 
         <div class="container">
           <label for="name"><b>Name</b></label>
-          <input type="text" placeholder="Enter name" name="name" required />
-
+          <input
+            type="text"
+            id="name"
+            class="fname"
+            name="firstname"
+            placeholder="Enter name"
+            required
+          />
           <label for="lname"><b>Last name</b></label>
           <input
             type="text"
             placeholder="Enter Last name"
-            name="lname"
+            id="lname"
+            class="lname"
+            name="lastname"
             required
           />
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required />
-          <label for="usern"><b>Username</b></label>
+          <label for="email" id="email-label"><b>Email</b></label>
+          <input id="email" type="email" class="email" name="email" />
+          <p>
+            <label for="username"><b>Username</b></label>
+            <input id="username" name="username" type="text" required />
+          </p>
+
+          <label for="password" id="password-label"><b>Password</b></label>
           <input
+            id="password"
+            class="pwd"
+            name="password"
             type="password"
-            placeholder="Enter Password"
-            name="usern"
-            required
-          />
-          <label for="pass"><b>Password</b></label>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            name="pass"
-            required
-          />
-          <label for="rpass"><b>Repeat Password</b></label>
-          <input
-            type="password"
-            placeholder="Reenter Password"
-            name="rpass"
             required
           />
 
-          <button type="submit">Save</button>
+          <label id="password-label" for="password"
+            ><b>Repeat Password</b></label
+          >
+          <input
+            id="password-confirm"
+            class="conpwd"
+            name="password"
+            type="password"
+            required
+          />
+
+          <p class="emsgb valdi"></p>
+          <button id="submit" type="submit">Save</button>
+          <input type="reset" name="reset" value="Reset" />
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
