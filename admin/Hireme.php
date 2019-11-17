@@ -71,6 +71,37 @@ $srow9 = mysqli_fetch_array($serresult9);
     />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="../js/portfolio.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function(argument) {
+				$('#save').click(function(){
+					// Get edit field value
+					$ser1 = $('#ser1').html();
+          $ser2 = $('#ser2').html();
+          $ser3 = $('#ser3').html();
+          $ser4 = $('#ser4').html();
+          $ser5 = $('#ser5').html();
+          $ser6 = $('#ser6').html();
+          $ser7 = $('#ser7').html();
+          $ser8 = $('#ser8').html();
+          $ser9 = $('#ser9').html();
+          $cost1 = $('#cost1').html();
+          $cost2 = $('#cost2').html();
+          $cost3 = $('#cost3').html();
+          $descrip1 = $('#descrip1').html();
+          $descrip2 = $('#descrip2').html();
+          $descrip3 = $('#descrip3').html();
+					$.ajax({
+						url: 'hiremeedit.php',
+						type: 'post',
+					  data: {data1: $ser1, data2: $ser2, data3: $ser3, data4: $ser4, data5: $ser5, data6: $ser6, data7: $ser7, data8: $ser8, data9: $ser9, data10: $cost1, data11: $descrip1, data12: $cost2, data13: $descrip2, data14: $cost3, data15: $descrip3},
+						datatype: 'html',
+						success: function(rsp){
+								alert(rsp);
+							}
+					});
+				});
+			});
+    </script>
   </head>
   <body class="home">
   <nav>
@@ -106,13 +137,13 @@ $srow9 = mysqli_fetch_array($serresult9);
                     <i class="fa fa-shopping-cart" style="font-size:100px; color:white ; margin: 15px"></i>
                 </div>
               <div class="text" style="text-align: center">
-                <h1>$<?php echo $row1['cost'] ?></h1>
-                <p><?php echo $row1['description'] ?></p>
+                $<h1 id="cost1" contenteditable="true"><?php echo $row1['cost'] ?></h1>
+                <p id="descrip1" contenteditable="true"><?php echo $row1['description'] ?></p>
                 <ul class="ul-h">
-                        <li class="li-h"><?php echo $srow1['services'] ?></li>
-                        <li class="li-h"><?php echo $srow2['services'] ?></li>
-                        <li class="li-h"><?php echo $srow3['services'] ?></li>
-                        <li class="li-h"><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
+                        <li class="li-h" id="ser1" contenteditable="true"><?php echo $srow1['services'] ?></li>
+                        <li class="li-h" id="ser2" contenteditable="true"><?php echo $srow2['services'] ?></li>
+                        <li class="li-h" id="ser3" contenteditable="true"><?php echo $srow3['services'] ?></li>
+                        <li class="li-h" ><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
                       </ul>
               </div>
             </article>
@@ -121,14 +152,14 @@ $srow9 = mysqli_fetch_array($serresult9);
                             <i class="fa fa-shopping-cart" style="font-size:100px; color:white ; margin: 15px"></i>
                         </div>
                       <div class="text" style="text-align: center">
-                      <h1>$<?php echo $row2['cost'] ?></h1>
-                       <p><?php echo $row2['description'] ?></p>
+                      $<h1 id="cost2" contenteditable="true"><?php echo $row2['cost'] ?></h1>
+                       <p id="descrip2" contenteditable="true"><?php echo $row2['description'] ?></p>
                         <ul class="ul-h">
-                                <li class="li-h"><?php echo $srow1['services'] ?></li>
-                                <li class="li-h"><?php echo $srow3['services'] ?></li>
-                                <li class="li-h"><?php echo $srow4['services'] ?></li>
-                                <li class="li-h"><?php echo $srow5['services'] ?></li>
-                                <li class="li-h"><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
+                                <li class="li-h" id="ser1" contenteditable="true"><?php echo $srow1['services'] ?></li>
+                                <li class="li-h" id="ser3" contenteditable="true"><?php echo $srow3['services'] ?></li>
+                                <li class="li-h" id="ser4" contenteditable="true"><?php echo $srow4['services'] ?></li>
+                                <li class="li-h" id="ser5" contenteditable="true"><?php echo $srow5['services'] ?></li>
+                                <li class="li-h" ><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
                               </ul>
                       </div>
             </article>
@@ -137,18 +168,20 @@ $srow9 = mysqli_fetch_array($serresult9);
                             <i class="fa fa-shopping-cart" style="font-size:100px; color:white ; margin: 15px"></i>
                         </div>
                       <div class="text" style="text-align: center">
-                      <h1>$<?php echo $row3['cost'] ?></h1>
-                      <p><?php echo $row3['description'] ?></p>
+                      $<h1 id="cost3" contenteditable="true"><?php echo $row3['cost'] ?></h1>
+                      <p id="descrip3" contenteditable="true"><?php echo $row3['description'] ?></p>
                         <ul class="ul-h">
-                                <li class="li-h"><?php echo $srow6['services'] ?></li>
-                                <li class="li-h"><?php echo $srow7['services'] ?></li>
-                                <li class="li-h"><?php echo $srow8['services'] ?></li>
-                                <li class="li-h"><?php echo $srow9['services'] ?></li>
-                                <li class="li-h"><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
+                                <li class="li-h" id="ser6" contenteditable="true"><?php echo $srow6['services'] ?></li>
+                                <li class="li-h" id="ser7" contenteditable="true"><?php echo $srow7['services'] ?></li>
+                                <li class="li-h" id="ser8" contenteditable="true"><?php echo $srow8['services'] ?></li>
+                                <li class="li-h" id="ser9" contenteditable="true"><?php echo $srow9['services'] ?></li>
+                                <li class="li-h" ><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
                               </ul>
                       </div>
             </article>
+            
             </div>
+            <button id="save">Click to Save</button>
 
     <!--Login pop up code starts -->
 
