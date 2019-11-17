@@ -38,6 +38,30 @@ $row2 = mysqli_fetch_array($expresult2);
     />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="../js/portfolio.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function(argument) {
+				$('#save').click(function(){
+					// Get edit field value
+					$ediexpdate1 = $('#ediexpdate1').html();
+          $ediexpdate2 = $('#ediexpdate2').html();
+          $ediexpfirm1 = $('#ediexpfirm1').html();
+          $ediexpfirm2 = $('#ediexpfirm2').html();
+          $ediexptitle1 = $('#ediexptitle1').html();
+          $ediexptitle2 = $('#ediexptitle2').html();
+          $ediexpdes1 = $('#ediexpdes1').html();
+          $ediexpdes2 = $('#ediexpdes2').html();
+					$.ajax({
+						url: 'expedit.php',
+						type: 'post',
+					data: {data1: $ediexpdate1, data2: $ediexpfirm1, data3: $ediexptitle1, data4: $ediexpdes1, data5: $ediexpdate2, data6: $ediexpfirm2, data7: $ediexptitle2, data8: $ediexpdes2},
+						datatype: 'html',
+						success: function(rsp){
+								alert(rsp);
+							}
+					});
+				});
+			});
+    </script>
   </head>
   <body class="home">
   <nav>
@@ -70,12 +94,12 @@ $row2 = mysqli_fetch_array($expresult2);
     <div class="container-exp">
       <div class="row-exp">
         <div class="leftside-e lp" style="color: #f1f1f1">
-          <p><?php echo $row1['date'] ?></p>
-          <h2><?php echo $row1['firm'] ?></h2>
+          <p id="ediexpdate1" contenteditable="true"><?php echo $row1['date'] ?></p>
+          <h2 id="ediexpfirm1" contenteditable="true"><?php echo $row1['firm'] ?></h2>
         </div>
         <div class="rightside-e" style="padding-left: 20px; padding-top: 10px; padding-right: 6px">
-          <h2><?php echo $row1['title'] ?></h3>
-          <p><?php echo $row1['description'] ?>
+          <h2 id="ediexptitle1" contenteditable="true"><?php echo $row1['title'] ?></h3>
+          <p id="ediexpdes1" contenteditable="true"><?php echo $row1['description'] ?>
             </p>
         </div>
       </div>
@@ -84,15 +108,16 @@ $row2 = mysqli_fetch_array($expresult2);
     <div class="container-exp">
             <div class="row-exp">
               <div class="leftside-e" style="padding:20px; color: #f1f1f1">
-              <p><?php echo $row2['date'] ?></p>
-              <h2><?php echo $row2['firm'] ?></h2>
+              <p id="ediexpdate2" contenteditable="true"><?php echo $row2['date'] ?></p>
+              <h2 id="ediexpfirm2" contenteditable="true"><?php echo $row2['firm'] ?></h2>
               </div>
               <div class="rightside-e" style="padding-left: 20px; padding-top: 10px; padding-right: 6px">
-              <h2><?php echo $row2['title'] ?></h3>
-              <p><?php echo $row2['description'] ?>
+              <h2 id="ediexptitle2" contenteditable="true"><?php echo $row2['title'] ?></h3>
+              <p id="ediexpdes2" contenteditable="true"><?php echo $row2['description'] ?>
                   </p>
               </div>
             </div>
+            <button id="save">Click to Save</button>
           </div>
 
     <!--Login pop up code starts -->

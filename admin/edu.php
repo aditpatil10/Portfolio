@@ -41,6 +41,34 @@ $row3 = mysqli_fetch_array($eduresult3);
     />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="../js/portfolio.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function(argument) {
+				$('#save').click(function(){
+					// Get edit field value
+					$ediedudate1 = $('#ediedudate1').html();
+          $ediedudate2 = $('#ediedudate2').html();
+          $ediedudate3 = $('#ediedudate3').html();
+          $ediedutype1 = $('#ediedutype1').html();
+          $ediedutype2 = $('#ediedutype2').html();
+          $ediedutype3 = $('#ediedutype3').html();
+          $ediedutitle1 = $('#ediedutitle1').html();
+          $ediedutitle2 = $('#ediedutitle2').html();
+          $ediedutitle3 = $('#ediedutitle3').html();
+          $edieduinst1 = $('#edieduinst1').html();
+          $edieduinst2 = $('#edieduinst2').html();
+          $edieduinst3 = $('#edieduinst3').html();
+					$.ajax({
+						url: 'eduedit.php',
+						type: 'post',
+					data: {data1: $ediedudate1, data2: $ediedutype1, data3: $ediedutitle1, data4: $edieduinst1, data5: $ediedudate2, data6: $ediedutype2, data7: $ediedutitle2, data8: $edieduinst2, data9: $ediedudate3, data10: $ediedutype3, data11: $ediedutitle3, data12: $edieduinst3},
+						datatype: 'html',
+						success: function(rsp){
+								alert(rsp);
+							}
+					});
+				});
+			});
+    </script>
   </head>
   <body class="home">
   <nav>
@@ -73,12 +101,12 @@ $row3 = mysqli_fetch_array($eduresult3);
     <div class="container-exp">
       <div class="row-exp">
         <div class="leftside-e" style="padding:30px ; color: #f1f1f1">
-          <p><?php echo $row1['date'] ?></p>
-          <h2><?php echo $row1['edutype'] ?></h2>
+          <p id="ediedudate1" contenteditable="true"><?php echo $row1['date'] ?></p>
+          <h2 id="ediedutype1" contenteditable="true"><?php echo $row1['edutype'] ?></h2>
         </div>
         <div class="rightside-e" style="padding-left: 20px; padding-top: 10px; padding-right: 6px">
-          <h2><?php echo $row1['title'] ?></h3>
-          <p><?php echo $row1['institution'] ?></p>
+          <h2 id="ediedutitle1" contenteditable="true"><?php echo $row1['title'] ?></h3>
+          <p id="edieduinst1" contenteditable="true"><?php echo $row1['institution'] ?></p>
         </div>
       </div>
     </div>
@@ -86,12 +114,12 @@ $row3 = mysqli_fetch_array($eduresult3);
     <div class="container-exp">
             <div class="row-exp">
               <div class="leftside-e" style="padding:30px ; color: #f1f1f1">
-                <p><?php echo $row2['date'] ?></p>
-                <h2><?php echo $row2['edutype'] ?></h2>
+                <p id="ediedudate2" contenteditable="true"><?php echo $row2['date'] ?></p>
+                <h2 id="ediedutype2" contenteditable="true"><?php echo $row2['edutype'] ?></h2>
               </div>
               <div class="rightside-e" style="padding-left: 20px; padding-top: 10px; padding-right: 6px">
-              <h2><?php echo $row2['title'] ?></h3>
-          <p><?php echo $row3['institution'] ?></p>
+              <h2 id="ediedutitle2" contenteditable="true"><?php echo $row2['title'] ?></h3>
+              <p id="edieduinst2" contenteditable="true"><?php echo $row2['institution'] ?></p>
               </div>
             </div>
           </div>
@@ -99,14 +127,15 @@ $row3 = mysqli_fetch_array($eduresult3);
     <div class="container-exp">
             <div class="row-exp">
               <div class="leftside-e" style="padding:30px; color: #f1f1f1">
-                <p><?php echo $row3['date'] ?></p>
-                <h2><?php echo $row3['edutype'] ?></h2>
+                <p id="ediedudate3" contenteditable="true"><?php echo $row3['date'] ?></p>
+                <h2 id="ediedutype3" contenteditable="true"><?php echo $row3['edutype'] ?></h2>
               </div>
               <div class="rightside-e" style="padding-left: 20px; padding-top: 10px; padding-right: 6px">
-              <h2><?php echo $row3['title'] ?></h3>
-          <p><?php echo $row3['institution'] ?></p>
+              <h2 id="ediedutitle3" contenteditable="true"><?php echo $row3['title'] ?></h3>
+               <p id="edieduinst3" contenteditable="true"><?php echo $row3['institution'] ?></p>
               </div>
             </div>
+            <button id="save">Click to Save</button>
           </div>
 
     <!--Login pop up code starts -->
