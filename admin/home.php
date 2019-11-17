@@ -1,3 +1,18 @@
+<?php 
+include('../functions.php');
+
+if (!isAdmin()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: ../login.php');
+}
+
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['user']);
+	header("location: ../login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>adi10's Portfolio</title>
-    <link rel="stylesheet" href="css/portfolio.css" />
+    <link rel="stylesheet" href="../css/portfolio.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
       rel="stylesheet"
@@ -15,38 +30,61 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="js/portfolio.js" type="text/javascript"></script>
+    <script src="../js/portfolio.js" type="text/javascript"></script>
   </head>
   <body class="home">
     <nav>
       <ul>
         <button>🞬</button>
-        <li style="padding-right: 12%"><a href="#home">adi10</a></li>
+        <li style="padding-right: 12%"><a href="#home">Admin</a></li>
         <li><a href="#">Homepage</a></li>
-        <li><a href="aboutme.html">About me</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="exp.html">Experience</a></li>
-        <li><a href="edu.html">Education</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="Hireme.html">Hire me</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="aboutme.php">About me</a></li>
+        <li><a href="skills.php">Skills</a></li>
+        <li><a href="portfolio.php">Portfolio</a></li>
+        <li><a href="exp.php">Experience</a></li>
+        <li><a href="edu.php">Education</a></li>
+        <li><a href="blog.php">Blog</a></li>
+        <li><a href="Hireme.php">Hire me</a></li>
+        <li><a href="contact.php">Contact</a></li>
         <li>
-          <a
-            href="#"
-            onclick="document.getElementById('id02').style.display='block'"
-            >Sign up</a
+        <a
+          href="home.php?logout='1'"
+            >Log out</a
           >
         </li>
-        <li>
-          <a
-            href="#"
-            onclick="document.getElementById('id01').style.display='block'"
-            >Login</a
-          >
-        </li>
+        
       </ul>
     </nav>
+
+    <div class="content">
+		<!-- notification message -->
+		<?php if (isset($_SESSION['success'])) : ?>
+			<div class="error success" >
+				<h3>
+					<?php 
+						echo $_SESSION['success']; 
+						unset($_SESSION['success']);
+					?>
+				</h3>
+			</div>
+    <?php endif ?>
+
+		<!-- logged in user information -->
+		<div class="profile_info">
+			<img src="../images/admin_profile.png"  >
+
+			<div>
+				<?php  if (isset($_SESSION['user'])) : ?>
+					<strong><?php echo $_SESSION['user']['username']; ?></strong>
+
+					<small>
+						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
+						<br>
+						<a href="home.php?logout='1'" style="color: red;">logout</a>
+                       &nbsp; <a href="create_user.php"> + add user</a>
+					</small>
+
+				<?php endif ?>
     <img
       class="center"
       src="https://avatars.githubusercontent.com/aditpatil10"

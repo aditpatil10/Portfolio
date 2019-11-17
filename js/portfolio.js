@@ -12,7 +12,7 @@ $(document).ready(function() {
     $("li").toggle("slow");
   });
 });
-
+/*
 function tc(a) {
   var x = document.querySelector(a).value;
   return x;
@@ -69,3 +69,4 @@ function singup() {
     return false;
   }
 }
+*/
