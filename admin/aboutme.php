@@ -40,12 +40,16 @@ $row = mysqli_fetch_array($aboutresult);
     $(document).ready(function(argument) {
 				$('#save').click(function(){
 					// Get edit field value
-					$edit = $('#editor').html();
-          $editt = $('#editorr').html();
+					$ediage = $('#ediage').html();
+          $ediemail = $('#ediemail').html();
+          $ediphone = $('#ediphone').html();
+          $ediaddress = $('#ediaddress').html();
+          $edilanguages = $('#edilanguages').html();
+          $ediabout = $('#ediabout').html();
 					$.ajax({
 						url: 'aboutmeedit.php',
 						type: 'post',
-						data: {data: $edit, dataa: $editt},
+						data: {data1: $ediage, data2: $ediemail, data3: $ediphone, data4: $ediaddress, data5: $edilanguages, data6: $ediabout},
 						datatype: 'html',
 						success: function(rsp){
 								alert(rsp);
@@ -84,7 +88,7 @@ $row = mysqli_fetch_array($aboutresult);
         <article>
           <h1>About</h1>
           <p>
-          <?php echo $row['aboutme'] ?>
+          <div id="ediabout" contenteditable="true"> <?php echo $row['aboutme'] ?></div>
           </p>
         </article>
       </div>
@@ -92,12 +96,12 @@ $row = mysqli_fetch_array($aboutresult);
         <article>
           <h1><b>Basic Information</b></h1>
 
-          <p><b>Age:</b><div id="editor" contenteditable="true"> <?php echo $row['age'] ?></div></p>
+          <p><b>Age:</b><div id="ediage" contenteditable="true"> <?php echo $row['age'] ?></div></p>
+          <p><b>Email:</b><div id="ediemail" contenteditable="true"> <?php echo $row['email'] ?></div></p>
+          <p><b>Phone:</b><div id="ediphone" contenteditable="true"> <?php echo $row['phone'] ?></div></p>
+          <p><b>Address:</b><div id="ediaddress" contenteditable="true"> <?php echo $row['address'] ?></div></p>
+          <p><b>Language:</b><div id="edilanguages" contenteditable="true"> <?php echo $row['languages'] ?></div></p>
           <button id="save">Click to Save</button>
-          <p><b>Email:</b><div id="editorr" contenteditable="true"> <?php echo $row['email'] ?></div></p>
-          <p><b>Phone:</b> <?php echo $row['phone'] ?></p>
-          <p><b>Address:</b> <?php echo $row['address'] ?></p>
-          <p><b>Language:</b> <?php echo $row['languages'] ?></p>
         </article>
       </div>
     </div>
