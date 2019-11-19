@@ -1,3 +1,57 @@
+<?php 
+    include('functions.php');
+    
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['user']);
+        header("location: login.php");
+    }
+
+    $homeSQL = "SELECT * FROM `home` WHERE homeid='1'";
+    $homeresult = mysqli_query($db, $homeSQL) or die("Bad query : $aboutSQL");
+    $row = mysqli_fetch_array($homeresult);
+
+    $hireSQL = "SELECT * FROM `hireme` WHERE hireid= '1'";
+    $hireSQL2 = "SELECT * FROM `hireme` WHERE hireid= '2'";
+    $hireSQL3 = "SELECT * FROM `hireme` WHERE hireid= '3'";
+    $hireresult = mysqli_query($db, $hireSQL) or die("Bad query : $hireSQL");
+    $hireresult2 = mysqli_query($db, $hireSQL2) or die("Bad query : $hireSQL2");
+    $hireresult3 = mysqli_query($db, $hireSQL3) or die("Bad query : $hireSQL3");
+    $row1 = mysqli_fetch_array($hireresult);
+    $row2 = mysqli_fetch_array($hireresult2);
+    $row3 = mysqli_fetch_array($hireresult3);
+    
+    $serviceSQL = "SELECT * FROM `services` WHERE serid= '1'";
+    $serviceSQL2 = "SELECT * FROM `services` WHERE serid= '2'";
+    $serviceSQL3 = "SELECT * FROM `services` WHERE serid= '3'";
+    $serviceSQL4 = "SELECT * FROM `services` WHERE serid= '4'";
+    $serviceSQL5 = "SELECT * FROM `services` WHERE serid= '5'";
+    $serviceSQL6 = "SELECT * FROM `services` WHERE serid= '6'";
+    $serviceSQL7 = "SELECT * FROM `services` WHERE serid= '7'";
+    $serviceSQL8 = "SELECT * FROM `services` WHERE serid= '8'";
+    $serviceSQL9 = "SELECT * FROM `services` WHERE serid= '9'";
+    $serresult = mysqli_query($db, $serviceSQL) or die("Bad query : $serviceSQL");
+    $serresult2 = mysqli_query($db, $serviceSQL2) or die("Bad query : $serviceSQL2");
+    $serresult3 = mysqli_query($db, $serviceSQL3) or die("Bad query : $serviceSQL3");
+    $serresult4 = mysqli_query($db, $serviceSQL4) or die("Bad query : $serviceSQL4");
+    $serresult5 = mysqli_query($db, $serviceSQL5) or die("Bad query : $serviceSQL5");
+    $serresult6 = mysqli_query($db, $serviceSQL6) or die("Bad query : $serviceSQL6");
+    $serresult7 = mysqli_query($db, $serviceSQL7) or die("Bad query : $serviceSQL7");
+    $serresult8 = mysqli_query($db, $serviceSQL8) or die("Bad query : $serviceSQL8");
+    $serresult9 = mysqli_query($db, $serviceSQL9) or die("Bad query : $serviceSQL9");
+    $srow1 = mysqli_fetch_array($serresult);
+    $srow2 = mysqli_fetch_array($serresult2);
+    $srow3 = mysqli_fetch_array($serresult3);
+    $srow4 = mysqli_fetch_array($serresult4);
+    $srow5 = mysqli_fetch_array($serresult5);
+    $srow6 = mysqli_fetch_array($serresult6);
+    $srow7 = mysqli_fetch_array($serresult7);
+    $srow8 = mysqli_fetch_array($serresult8);
+    $srow9 = mysqli_fetch_array($serresult9);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,34 +75,26 @@
         <nav>
                 <ul>
                     <button>🞬</button>
-                  <li style="padding-right: 12%"><a href="#home">adi10</a></li>
-                  <li><a href="home.html">Homepage</a></li>
-                  <li><a href="aboutme.html">About me</a></li>
-                  <li><a href="skills.html">Skills</a></li>
-                  <li><a href="portfolio.html">Portfolio</a></li>
-                  <li><a href="exp.html">Experience</a></li>
-                  <li><a href="edu.html">Education</a></li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="#">Hire me</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li>
-                    <a
-                      href="#"
-                      onclick="document.getElementById('id02').style.display='block'"
-                      >Sign up</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      onclick="document.getElementById('id01').style.display='block'"
-                      >Login</a
-                    >
-                  </li>
+                    <li style="padding-right: 12%"><a href="#home">User</a></li>
+        <li><a href="index.php">Homepage</a></li>
+        <li><a href="aboutme.php">About me</a></li>
+        <li><a href="skills.php">Skills</a></li>
+        <li><a href="portfolio.php">Portfolio</a></li>
+        <li><a href="exp.php">Experience</a></li>
+        <li><a href="edu.php">Education</a></li>
+        <li><a href="blog.php">Blog</a></li>
+        <li><a href="#">Hire me</a></li>
+        <li><a href="contact.php">Contact</a></li>
+        <li>
+        <a
+          href="home.php?logout='1'"
+            >Log out</a
+          >
+        </li>
                 </ul>
               </nav>
 
-    <header>
+              <header>
       <h1 style="text-align: center; color: #f1f1f1">Hire me</h1>
     </header>
     <div class="container-h">
@@ -58,13 +104,13 @@
                     <i class="fa fa-shopping-cart" style="font-size:100px; color:white ; margin: 15px"></i>
                 </div>
               <div class="text" style="text-align: center">
-                <h1>$300</h1>
-                <p>Design for natural people</p>
+                $<h1><?php echo $row1['cost'] ?></h1>
+                <p><?php echo $row1['description'] ?></p>
                 <ul class="ul-h">
-                        <li class="li-h">Logo</li>
-                        <li class="li-h">Advertising image to print</li>
-                        <li class="li-h">Photo Editing</li>
-                        <li class="li-h"><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
+                        <li class="li-h"><?php echo $srow1['services'] ?></li>
+                        <li class="li-h"><?php echo $srow2['services'] ?></li>
+                        <li class="li-h" ><?php echo $srow3['services'] ?></li>
+                        <li class="li-h" ><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
                       </ul>
               </div>
             </article>
@@ -73,14 +119,14 @@
                             <i class="fa fa-shopping-cart" style="font-size:100px; color:white ; margin: 15px"></i>
                         </div>
                       <div class="text" style="text-align: center">
-                        <h1>$650</h1>
-                        <p>Website Design</p>
+                      $<h1><?php echo $row2['cost'] ?></h1>
+                       <p><?php echo $row2['description'] ?></p>
                         <ul class="ul-h">
-                                <li class="li-h">Logo</li>
-                                <li class="li-h">Photo Editing</li>
-                                <li class="li-h">Site Construction</li>
-                                <li class="li-h">Maintenance for 6 months </li>
-                                <li class="li-h"><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
+                                <li class="li-h"><?php echo $srow1['services'] ?></li>
+                                <li class="li-h"><?php echo $srow3['services'] ?></li>
+                                <li class="li-h"><?php echo $srow4['services'] ?></li>
+                                <li class="li-h"><?php echo $srow5['services'] ?></li>
+                                <li class="li-h" ><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
                               </ul>
                       </div>
             </article>
@@ -89,17 +135,18 @@
                             <i class="fa fa-shopping-cart" style="font-size:100px; color:white ; margin: 15px"></i>
                         </div>
                       <div class="text" style="text-align: center">
-                        <h1>$1450</h1>
-                        <p>3d character Design</p>
+                      $<h1 id="cost3" contenteditable="true"><?php echo $row3['cost'] ?></h1>
+                      <p id="descrip3" contenteditable="true"><?php echo $row3['description'] ?></p>
                         <ul class="ul-h">
-                                <li class="li-h">Character Sketch</li>
-                                <li class="li-h">Digitization and development</li>
-                                <li class="li-h">Animation</li>
-                                <li class="li-h">Video demo</li>
-                                <li class="li-h"><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
+                                <li class="li-h"><?php echo $srow6['services'] ?></li>
+                                <li class="li-h"><?php echo $srow7['services'] ?></li>
+                                <li class="li-h"><?php echo $srow8['services'] ?></li>
+                                <li class="li-h"><?php echo $srow9['services'] ?></li>
+                                <li class="li-h" ><a href="contact.html" style="color: green ;text-decoration: none"> Contact us</a></li>
                               </ul>
                       </div>
             </article>
+            
             </div>
 
     <!--Login pop up code starts -->

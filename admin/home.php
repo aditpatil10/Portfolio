@@ -11,6 +11,10 @@ if (isset($_GET['logout'])) {
 	unset($_SESSION['user']);
 	header("location: ../login.php");
 }
+
+$homeSQL = "SELECT * FROM `home` WHERE homeid='1'";
+$homeresult = mysqli_query($db, $homeSQL) or die("Bad query : $aboutSQL");
+$row = mysqli_fetch_array($homeresult);
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +35,24 @@ if (isset($_GET['logout'])) {
     />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="../js/portfolio.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function(argument) {
+				$('#save').click(function(){
+					// Get edit field value
+					$homename = $('#homename').html();
+          $homebio = $('#homebio').html();
+					$.ajax({
+						url: 'homeedit.php',
+						type: 'post',
+						data: {data1: $homename, data2: $homebio},
+						datatype: 'html',
+						success: function(rsp){
+								alert(rsp);
+							}
+					});
+				});
+			});
+    </script>
   </head>
   <body class="home">
     <nav>
@@ -93,16 +115,17 @@ if (isset($_GET['logout'])) {
     />
     <div style="text-align: center; margin: auto">
       <header>
-        <h2 style="font-size: 50px; color: white">
-          Adit Patil
+        <h2 style="font-size: 50px; color: white" id="homename" contenteditable="true">
+        <?php echo $row['nameid'] ?>
         </h2>
       </header>
-      <p style="font-size: 20px; color: white">
-        Web Developer, Android Developer, Writer
+      <p style="font-size: 20px; color: white" id="homebio" contenteditable="true">
+      <?php echo $row['bio'] ?>
       </p>
       <button class="button">Hire me</button>
       <button class="button">Download CV</button>
     </div>
+    <button id="save">Click to Save</button>
     <div style="text-align: center; padding-top: 4%; margin-bottom: 25% ">
       <a
         href="https://www.facebook.com/adi10.patil"

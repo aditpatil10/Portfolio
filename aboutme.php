@@ -1,3 +1,18 @@
+
+<?php 
+    include('functions.php');
+    
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['user']);
+        header("location: login.php");
+    }
+
+    $aboutSQL = "SELECT * FROM `personal` WHERE pid='1'";
+$aboutresult = mysqli_query($db, $aboutSQL) or die("Bad query : $aboutSQL");
+$row = mysqli_fetch_array($aboutresult);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,28 +32,20 @@
     <nav>
       <ul>
         <button>🞬</button>
-        <li style="padding-right: 12%"><a href="#home">adi10</a></li>
-        <li><a href="home.html">Homepage</a></li>
+        <li style="padding-right: 12%"><a href="#home">User</a></li>
+        <li><a href="index.php">Homepage</a></li>
         <li><a href="#">About me</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="exp.html">Experience</a></li>
-        <li><a href="edu.html">Education</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="Hireme.html">Hire me</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="skills.php">Skills</a></li>
+        <li><a href="portfolio.php">Portfolio</a></li>
+        <li><a href="exp.php">Experience</a></li>
+        <li><a href="edu.php">Education</a></li>
+        <li><a href="blog.php">Blog</a></li>
+        <li><a href="Hireme.php">Hire me</a></li>
+        <li><a href="contact.php">Contact</a></li>
         <li>
-          <a
-            href="#"
-            onclick="document.getElementById('id02').style.display='block'"
-            >Sign up</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            onclick="document.getElementById('id01').style.display='block'"
-            >Login</a
+        <a
+          href="home.php?logout='1'"
+            >Log out</a
           >
         </li>
       </ul>
@@ -49,32 +56,20 @@
         <article>
           <h1>About</h1>
           <p>
-            A graduate Computer Science student at University of Texas at
-            Arlington with an interest in Web developing, Data mining,
-            Artificial Intelligence and Machine Learning. Seeking the new
-            opportunities across various tech domains. Currently working and
-            Learning AI & Algorithms.
+          <div> <?php echo $row['aboutme'] ?></div>
           </p>
-          <p>
-            <b>Specialties</b>
-          </p>
-          <ul>
-            <li>Javascript</li>
-            <li>Angular.js</li>
-            <li>React.js</li>
-            <li>Node.js</li>
-          </ul>
         </article>
       </div>
       <div class="rightside">
         <article>
           <h1><b>Basic Information</b></h1>
 
-          <p><b>Age:</b> 22</p>
-          <p><b>Email:</b> adi10.patil@gmail.com</p>
-          <p><b>Phone:</b> 4699203325</p>
-          <p><b>Address:</b> 221B Bakers Street</p>
-          <p><b>Language:</b> English, Hindi, Marathi</p>
+          <p><b>Age:</b><div> <?php echo $row['age'] ?></div></p>
+          <p><b>Email:</b><div> <?php echo $row['email'] ?></div></p>
+          <p><b>Phone:</b><div> <?php echo $row['phone'] ?></div></p>
+          <p><b>Address:</b><div> <?php echo $row['address'] ?></div></p>
+          <p><b>Language:</b><div> <?php echo $row['languages'] ?></div></p>
+         
         </article>
       </div>
     </div>

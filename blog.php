@@ -21,28 +21,20 @@
     <nav>
       <ul>
         <button>🞬</button>
-        <li style="padding-right: 12%"><a href="#home">adi10</a></li>
-        <li><a href="home.html">Homepage</a></li>
-        <li><a href="aboutme.html">About me</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="exp.html">Experience</a></li>
-        <li><a href="edu.html">Education</a></li>
+        <li style="padding-right: 12%"><a href="#home">User</a></li>
+        <li><a href="index.php">Homepage</a></li>
+        <li><a href="aboutme.php">About me</a></li>
+        <li><a href="skills.php">Skills</a></li>
+        <li><a href="portfolio.php">Portfolio</a></li>
+        <li><a href="exp.php">Experience</a></li>
+        <li><a href="edu.php">Education</a></li>
         <li><a href="#">Blog</a></li>
-        <li><a href="Hireme.html">Hire me</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="hireme.php">Hire me</a></li>
+        <li><a href="contact.php">Contact</a></li>
         <li>
-          <a
-            href="#"
-            onclick="document.getElementById('id02').style.display='block'"
-            >Sign up</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            onclick="document.getElementById('id01').style.display='block'"
-            >Login</a
+        <a
+          href="home.php?logout='1'"
+            >Log out</a
           >
         </li>
       </ul>

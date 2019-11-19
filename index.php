@@ -7,7 +7,12 @@
         unset($_SESSION['user']);
         header("location: login.php");
     }
+
+    $homeSQL = "SELECT * FROM `home` WHERE homeid='1'";
+    $homeresult = mysqli_query($db, $homeSQL) or die("Bad query : $aboutSQL");
+    $row = mysqli_fetch_array($homeresult);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,14 +38,14 @@
         <button>🞬</button>
         <li style="padding-right: 12%"><a href="#home">User</a></li>
         <li><a href="#">Homepage</a></li>
-        <li><a href="aboutme.html">About me</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="exp.html">Experience</a></li>
-        <li><a href="edu.html">Education</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="Hireme.html">Hire me</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="aboutme.php">About me</a></li>
+        <li><a href="skills.php">Skills</a></li>
+        <li><a href="portfolio.php">Portfolio</a></li>
+        <li><a href="exp.php">Experience</a></li>
+        <li><a href="edu.php">Education</a></li>
+        <li><a href="blog.php">Blog</a></li>
+        <li><a href="Hireme.php">Hire me</a></li>
+        <li><a href="contact.php">Contact</a></li>
         <li>
           <a
           href="home.php?logout='1'"
@@ -58,11 +63,11 @@
     <div style="text-align: center; margin: auto">
       <header>
         <h2 style="font-size: 50px; color: white">
-          Adit Patil
+        <?php echo $row['nameid'] ?>
         </h2>
       </header>
       <p style="font-size: 20px; color: white">
-        Web Developer, Android Developer, Writer
+      <?php echo $row['bio'] ?>
       </p>
       <button class="button">Hire me</button>
       <button class="button">Download CV</button>

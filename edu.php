@@ -1,3 +1,27 @@
+<?php 
+    include('functions.php');
+    
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['user']);
+        header("location: login.php");
+    }
+
+    $homeSQL = "SELECT * FROM `home` WHERE homeid='1'";
+    $homeresult = mysqli_query($db, $homeSQL) or die("Bad query : $aboutSQL");
+    $row = mysqli_fetch_array($homeresult);
+
+    $eduSQL = "SELECT * FROM `edu` WHERE eduid= '1'";
+$eduSQL2 = "SELECT * FROM `edu` WHERE eduid= '2'";
+$eduSQL3 = "SELECT * FROM `edu` WHERE eduid= '3'";
+$eduresult = mysqli_query($db, $eduSQL) or die("Bad query : $eduSQL");
+$eduresult2 = mysqli_query($db, $eduSQL2) or die("Bad query : $eduSQL2");
+$eduresult3 = mysqli_query($db, $eduSQL3) or die("Bad query : $eduSQL3");
+$row1 = mysqli_fetch_array($eduresult);
+$row2 = mysqli_fetch_array($eduresult2);
+$row3 = mysqli_fetch_array($eduresult3);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,46 +45,38 @@
         <nav>
                 <ul>
                     <button>🞬</button>
-                  <li style="padding-right: 12%"><a href="#home">adi10</a></li>
-                  <li><a href="home.html">Homepage</a></li>
-                  <li><a href="aboutme.html">About me</a></li>
-                  <li><a href="skills.html">Skills</a></li>
-                  <li><a href="portfolio.html">Portfolio</a></li>
-                  <li><a href="exp.html">Experience</a></li>
-                  <li><a href="#">Education</a></li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="Hireme.html">Hire me</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li>
-                    <a
-                      href="#"
-                      onclick="document.getElementById('id02').style.display='block'"
-                      >Sign up</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      onclick="document.getElementById('id01').style.display='block'"
-                      >Login</a
-                    >
-                  </li>
+                    <li style="padding-right: 12%"><a href="#home">User</a></li>
+        <li><a href="index.php">Homepage</a></li>
+        <li><a href="aboutme.php">About me</a></li>
+        <li><a href="skills.php">Skills</a></li>
+        <li><a href="portfolio.php">Portfolio</a></li>
+        <li><a href="exp.php">Experience</a></li>
+        <li><a href="#">Education</a></li>
+        <li><a href="blog.php">Blog</a></li>
+        <li><a href="Hireme.php">Hire me</a></li>
+        <li><a href="contact.php">Contact</a></li>
+        <li>
+        <a
+          href="home.php?logout='1'"
+            >Log out</a
+          >
+        </li>
                 </ul>
               </nav>
 
-    <header>
+              <header>
       <h1 style="text-align: center; color: #f1f1f1">Education</h1>
     </header>
 
     <div class="container-exp">
       <div class="row-exp">
         <div class="leftside-e" style="padding:30px ; color: #f1f1f1">
-          <p>2019-Present</p>
-          <h2>Master's Degree</h2>
+          <p><?php echo $row1['date'] ?></p>
+          <h2><?php echo $row1['edutype'] ?></h2>
         </div>
         <div class="rightside-e" style="padding-left: 20px; padding-top: 10px; padding-right: 6px">
-          <h2>Masters in Computer Science</h3>
-          <p>University of Texas Arlington</p>
+          <h2><?php echo $row1['title'] ?></h3>
+          <p><?php echo $row1['institution'] ?></p>
         </div>
       </div>
     </div>
@@ -68,12 +84,12 @@
     <div class="container-exp">
             <div class="row-exp">
               <div class="leftside-e" style="padding:30px ; color: #f1f1f1">
-                <p>2015-2019</p>
-                <h2>Engineering</h2>
+                <p><?php echo $row2['date'] ?></p>
+                <h2><?php echo $row2['edutype'] ?></h2>
               </div>
               <div class="rightside-e" style="padding-left: 20px; padding-top: 10px; padding-right: 6px">
-                <h2>Bachelors of Computer Engineering</h3>
-                <p> Atharva College of Engineering</p>
+              <h2><?php echo $row2['title'] ?></h3>
+              <p><?php echo $row2['institution'] ?></p>
               </div>
             </div>
           </div>
@@ -81,16 +97,15 @@
     <div class="container-exp">
             <div class="row-exp">
               <div class="leftside-e" style="padding:30px; color: #f1f1f1">
-                <p>2013-2015</p>
-                <h2> High School</h2>
+                <p><?php echo $row3['date'] ?></p>
+                <h2><?php echo $row3['edutype'] ?></h2>
               </div>
               <div class="rightside-e" style="padding-left: 20px; padding-top: 10px; padding-right: 6px">
-                <h2>Bachelors of Science</h3>
-                <p>Vidyalankar</p>
+              <h2><?php echo $row3['title'] ?></h3>
+               <p><?php echo $row3['institution'] ?></p>
               </div>
             </div>
           </div>
-
     <!--Login pop up code starts -->
 
     <!-- The Modal -->

@@ -1,3 +1,22 @@
+<?php 
+  include('functions.php');
+    
+  if (isset($_GET['logout'])) {
+      session_destroy();
+      unset($_SESSION['user']);
+      header("location: login.php");
+  }
+
+  $expSQL = "SELECT * FROM `exp` WHERE expid= '1'";
+$expSQL2 = "SELECT * FROM `exp` WHERE expid= '2'";
+$expresult = mysqli_query($db, $expSQL) or die("Bad query : $expSQL");
+$expresult2 = mysqli_query($db, $expSQL2) or die("Bad query : $expSQL2");
+$row1 = mysqli_fetch_array($expresult);
+$row2 = mysqli_fetch_array($expresult2);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,48 +40,39 @@
         <nav>
                 <ul>
                     <button>🞬</button>
-                  <li style="padding-right: 12%"><a href="#home">adi10</a></li>
-                  <li><a href="home.html">Homepage</a></li>
-                  <li><a href="aboutme.html">About me</a></li>
-                  <li><a href="skills.html">Skills</a></li>
-                  <li><a href="portfolio.html">Portfolio</a></li>
-                  <li><a href="#">Experience</a></li>
-                  <li><a href="edu.html">Education</a></li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="Hireme.html">Hire me</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li>
-                    <a
-                      href="#"
-                      onclick="document.getElementById('id02').style.display='block'"
-                      >Sign up</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      onclick="document.getElementById('id01').style.display='block'"
-                      >Login</a
-                    >
-                  </li>
+                    <li style="padding-right: 12%"><a href="#home">User</a></li>
+        <li><a href="index.php">Homepage</a></li>
+        <li><a href="aboutme.php">About me</a></li>
+        <li><a href="skills.php">Skills</a></li>
+        <li><a href="portfolio.php">Portfolio</a></li>
+        <li><a href="#">Experience</a></li>
+        <li><a href="edu.php">Education</a></li>
+        <li><a href="blog.php">Blog</a></li>
+        <li><a href="Hireme.php">Hire me</a></li>
+        <li><a href="contact.php">Contact</a></li>
+        <li>
+        <a
+          href="home.php?logout='1'"
+            >Log out</a
+          >
+        </li>
                 </ul>
               </nav>
 
-    <header>
+              <header>
       <h1 style="text-align: center; color: #f1f1f1">Work Experience</h1>
     </header>
 
     <div class="container-exp">
       <div class="row-exp">
         <div class="leftside-e lp" style="color: #f1f1f1">
-          <p>July 2018-Sept 2018</p>
-          <h2>SSN Web Architects</h2>
+          <p><?php echo $row1['date'] ?></p>
+          <h2><?php echo $row1['firm'] ?></h2>
         </div>
         <div class="rightside-e" style="padding-left: 20px; padding-top: 10px; padding-right: 6px">
-          <h2>Web Developer</h3>
-          <p>Collaborate within an Agile team structure where they assisted with developing code using such technologies as: Java, JavaScript and Wordpress.
+          <h2><?php echo $row1['title'] ?></h3>
+          <p><?php echo $row1['description'] ?>
             </p>
-            <p>Developed front-end web applications using HTML/CSS and JavaScript. Developed back-end web applications using php and mysql.</p>
         </div>
       </div>
     </div>
@@ -70,19 +80,12 @@
     <div class="container-exp">
             <div class="row-exp">
               <div class="leftside-e" style="padding:20px; color: #f1f1f1">
-                <p>Feb 2017- Aug 2017</p>
-                <h2> NMIMS Kirit P. Mehta School of Law</h2>
+              <p><?php echo $row2['date'] ?></p>
+              <h2><?php echo $row2['firm'] ?></h2>
               </div>
               <div class="rightside-e" style="padding-left: 20px; padding-top: 10px; padding-right: 6px">
-                <h2>Freelance Web Developer</h3>
-                <p>This was the freelancing project which was developed by me and my colleague.
-
-                        I did UI, UX development using Javascript, CSS and various frameworks.
-                        
-                        Also I was in thorough contact with my client and I was making sure that all his requirements are fulfilled.
-                        
-                        http://meraki.nmims.edu
-                        
+              <h2><?php echo $row2['title'] ?></h3>
+              <p><?php echo $row2['description'] ?>
                   </p>
               </div>
             </div>

@@ -25,14 +25,14 @@
         <button>🞬</button>
         <li style="padding-right: 12%"><a href="#home">adi10</a></li>
         <li><a href="#">Homepage</a></li>
-        <li><a href="aboutme.html">About me</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="exp.html">Experience</a></li>
-        <li><a href="edu.html">Education</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="Hireme.html">Hire me</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">About me</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Experience</a></li>
+        <li><a href="#">Education</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Hire me</a></li>
+        <li><a href="#">Contact</a></li>
         <li>
           <a
             href="register.php"
