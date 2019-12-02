@@ -2,7 +2,7 @@
 session_start();
 
 // connect to database
-$db = mysqli_connect('localhost', 'root', '', 'multi_login');
+$db = mysqli_connect('localhost', 'aditpati_wazza', 'iam%theman!98', 'aditpati_portfolio');
 
 // variable declaration
 $username = "";
